@@ -1,18 +1,18 @@
 # vue-todos
 
-> A Vue.js project
+> 用vue-cli创建的一个demo，完成一个简单的记事本功能。使用localStorage本地存储。
 
-## Build Setup
+## 项目运行
 
 ``` bash
-# install dependencies
-npm install
+# 安装依赖包
+  cnpm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 运行
+  npm run dev
 
-# build for production with minification
-npm run build
 ```
+
+## 效果图
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
