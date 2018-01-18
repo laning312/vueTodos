@@ -1,0 +1,115 @@
+@input_color: #e6e6e6;
+@input_font_weight:300;
+@checkbox_img:'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>';
+@checkbox_checked_img:'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>';
+
+.todos{
+  margin: 0;
+  list-style: none;
+  padding: 0 20px;
+  border-top: 1px solid #ccc;
+  background: #fff;
+  box-shadow: 0 10px 30px #ccc;
+  position: relative;
+  //transition: .3s;
+
+  & input::-webkit-input-placeholder{
+    font-style: italic;
+    font-weight: @input_font_weight;
+    color: @input_color;
+  }
+
+  & > li{
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 26px;
+    padding: 12px 0;
+    border-bottom: 1px solid #ededed;
+    position: relative;
+
+    &:first-child > input{
+      font-size: 24px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      background: transparent;
+    }
+
+    & > input[type=checkbox]{
+      display: inline-block;
+      width: 40px;
+      height: auto;
+      margin: auto 0;
+      position: absolute;
+      //vertical-align: middle;
+      top: 6px;
+      bottom: 0;
+      border: none;
+      appearance: none;   //去掉checkbox的默认外观
+      -webkit-appearance: none;
+      &:after{
+        content: url(@checkbox_img);
+      }
+    }
+
+    & > time{
+      position: absolute;
+      right: 60px;
+      top: 15px;
+      font-size: 12px;
+    }
+    
+    & > label{
+      display: block;
+      padding-left: 50px;
+      vertical-align: middle;
+      letter-spacing: 2px;
+    }
+
+    & > button{
+      position: absolute;
+      right: 5px;
+      top: 10px;
+      height: 30px;
+      border: none;
+      background: none;
+      display: none;
+      &:after, &:before{
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 0;
+        height: 1px;
+        width: 25px;
+        background: #cc9a9a;
+        transform: rotateZ(45deg);
+      }
+      &:before{
+        transform: rotateZ(-45deg);
+      }
+      
+      &:hover{
+        cursor: pointer;
+      }
+    }
+
+    &.checked{
+      & > input[type=checkbox]{
+        &:after{
+          content: url(@checkbox_checked_img);
+        }
+      }
+      
+      & > label{
+        color: #ddd;
+        text-decoration: line-through;
+      }
+    }
+
+    &:hover{
+      & > button{
+        display: block;
+      }
+    }
+  }
+}
